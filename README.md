@@ -1,4 +1,7 @@
-# s3backup - Docker container that periodically backups files to Amazon S3 using s3cmd
+
+# s3-docker-tool - Docker container that periodically backups files to Amazon S3 using s3cmd
+
+[![nodesource/node](http://dockeri.co/image/jinnabalu/s3-docker-tool)](https://registry.hub.docker.com/u/jinnabalu/s3-docker-tool/)
 
 ## Amazon S3 Tools: Command Line S3 Client Software and S3 Backup as a docker container
 
@@ -28,7 +31,7 @@ Run upload to S3 everyday at 12:00pm:
         -e S3_PATH=s3://my-bucket/backup/ \
         -e 'CRON_SCHEDULE=0 12 * * *' \
         -v /home/user/data:/data:ro \
-        jinnabalu/s3backup
+        jinnabalu/s3-docker-tool
 
 Run once then delete the container:
 
@@ -37,7 +40,7 @@ Run once then delete the container:
         -e SECRET_KEY=myawssecret \
         -e S3_PATH=s3://my-bucket/backup/ \
         -v /home/user/data:/data:ro \
-        jinnabalu/s3backup no-cron
+        jinnabalu/s3-docker-tool no-cron
 
 Run once to get from S3 then delete the container:
 
@@ -46,7 +49,7 @@ Run once to get from S3 then delete the container:
         -e SECRET_KEY=myawssecret \
         -e S3_PATH=s3://my-bucket/backup/ \
         -v /home/user/data:/data:rw \
-        jinnabalu/s3backup get
+        jinnabalu/s3-docker-tool get
 
 Run once to delete from s3 then delete the container:
 
@@ -54,6 +57,6 @@ Run once to delete from s3 then delete the container:
         -e ACCESS_KEY=myawskey \
         -e SECRET_KEY=myawssecret \
         -e S3_PATH=s3://my-bucket/backup/ \
-        jinnabalu/s3backup delete
+        jinnabalu/s3-docker-tool delete
 
 Security considerations: on restore, this opens up permissions on the restored files widely.
