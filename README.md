@@ -24,7 +24,7 @@
 
 ### Examples
 
-Run upload to S3 everyday at 12:00pm:
+Run an upload to S3 everyday at 12:00pm:
 
     docker run -d \
         -e ACCESS_KEY=myawskey \
@@ -34,7 +34,7 @@ Run upload to S3 everyday at 12:00pm:
         -v /home/user/data:/data:ro \
         jinnabalu/s3dockertool
 
-Run once then delete the container:
+Run once, then delete the container:
 
     docker run --rm \
         -e ACCESS_KEY=myawskey \
@@ -43,7 +43,7 @@ Run once then delete the container:
         -v /home/user/data:/data:ro \
         jinnabalu/s3dockertool no-cron
 
-Run once to get from S3 then delete the container:
+Run once to get a backup from S3, then delete the container:
 
     docker run --rm \
         -e ACCESS_KEY=myawskey \
@@ -52,7 +52,7 @@ Run once to get from S3 then delete the container:
         -v /home/user/data:/data:rw \
         jinnabalu/s3dockertool get
 
-Run once to delete from s3 then delete the container:
+Run once to delete the backup from s3, then delete the container:
 
     docker run --rm \
         -e ACCESS_KEY=myawskey \
@@ -60,4 +60,5 @@ Run once to delete from s3 then delete the container:
         -e S3_PATH=s3://my-bucket/backup/ \
         jinnabalu/s3dockertool delete
 
-Security considerations: on restore, this opens up permissions on the restored files widely.
+###Security considerations
+* On restore, this opens up permissions on the restored files widely
