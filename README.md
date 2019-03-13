@@ -6,12 +6,12 @@
 
 ## Amazon S3 Tools: Command Line S3 Client Software and S3 Backup as a docker container
 
- Detailed explanation here on [S3Tools : s3cmd](http://s3tools.org/usage) 
+ Detailed explanation here on [S3Tools](http://s3tools.org/usage) 
 
 ## Parameters
 
-* `-e ACCESS_KEY=<AWS_KEY>`: Your AWS key.
-* `-e SECRET_KEY=<AWS_SECRET>`: Your AWS secret.
+* `-e ACCESS_KEY=<AWS_KEY>`: Your AWS ACCESS_KEY
+* `-e SECRET_KEY=<AWS_SECRET>`: Your AWS SECRET_KEY
 * `-e S3_PATH=s3://<BUCKET_NAME>/<PATH>/`: S3 Bucket name and path. Should end with trailing slash.
 * `-v /path/to/backup:/data:ro`: mount target local folder to container's data folder. Content of this folder will be synced with S3 bucket.
 
@@ -60,5 +60,5 @@ Run once to delete the backup from s3, then delete the container:
         -e S3_PATH=s3://my-bucket/backup/ \
         jinnabalu/s3dockertool delete
 
-###Security considerations
+### Security considerations
 * On restore, this opens up permissions on the restored files widely
